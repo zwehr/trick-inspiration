@@ -1,7 +1,9 @@
+import Navbar from './navbar';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <nav>[nav placeholder]</nav>
+      <Navbar />
       <main>{children}</main>
       <footer>[footer placeholder]</footer>
     </>
