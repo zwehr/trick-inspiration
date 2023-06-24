@@ -2,5 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+h1 {
+  @apply text-5xl text-center m-2;
+}
+
+p {
+  @apply text-center;
 }
