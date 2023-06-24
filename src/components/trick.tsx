@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-type VideoProps = {
-  video: Video;
+type TrickProps = {
+  video: Trick;
 };
 
-type Video = {
+type Trick = {
   _id: string;
   skater: string;
   videoTitle: string;
@@ -14,8 +14,8 @@ type Video = {
   webmLink: string;
 };
 
-export default function Video(props: VideoProps) {
-  const [video, setVideo] = useState<Video>(props.video);
+export default function Video(props: TrickProps) {
+  const [video, setVideo] = useState<Trick>(props.video);
 
   return (
     <div>

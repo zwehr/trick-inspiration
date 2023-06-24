@@ -1,6 +1,6 @@
 import clientPromise from '@/lib/mongodb';
 import { useState } from 'react';
-import Video from '@/components/video';
+import Video from '@/components/trick';
 
 type TrickProps = {
   tricks: [Trick];
