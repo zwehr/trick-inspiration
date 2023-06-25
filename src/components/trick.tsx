@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 type TrickProps = {
-  video: Trick;
+  trick: Trick;
 };
 
 type Trick = {
@@ -14,16 +14,21 @@ type Trick = {
   webmLink: string;
 };
 
-export default function Video(props: TrickProps) {
-  const [video, setVideo] = useState<Trick>(props.video);
+export default function Trick(props: TrickProps) {
+  const [trick, setTrick] = useState<Trick>(props.trick);
 
   return (
-    <div>
-      <video controls>
-        <source src={video.webmLink} type='video/webm'></source>
+    <div className='w-1/4 m-6 border-4 border-black shadow-[10px_10px_black] bg-emerald-300'>
+      <video autoPlay muted loop className=''>
+        <source src={trick.webmLink} type='video/webm'></source>
         Your browser does not support the video tag.
       </video>
-      <p>{video.skater}</p>
+      <p>
+        {trick.skater} - <a href={trick.youtubeLink}>{trick.videoTitle}</a>
+      </p>
+      {trick.tags.map((tag) => (
+        <p>{tag}</p>
+      ))}
     </div>
   );
 }

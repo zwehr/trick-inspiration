@@ -1,6 +1,6 @@
 import clientPromise from '@/lib/mongodb';
 import { useState } from 'react';
-import Video from '@/components/trick';
+import Trick from '@/components/trick';
 
 type TrickProps = {
   tricks: [Trick];
@@ -22,10 +22,12 @@ export default function Home(props: TrickProps) {
 
   return (
     <>
-      <h1>Home</h1>
-      {tricks.map((trick) => (
-        <Video video={trick} />
-      ))}
+      <h1>Tasteful Tech</h1>
+      <div className='flex flex-wrap'>
+        {tricks.map((trick) => (
+          <Trick trick={trick} />
+        ))}
+      </div>
     </>
   );
 }
