@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Tags from './tags';
 
 type TrickProps = {
   trick: Trick;
@@ -26,9 +27,7 @@ export default function Trick(props: TrickProps) {
       <p>
         {trick.skater} - <a href={trick.youtubeLink}>{trick.videoTitle}</a>
       </p>
-      {trick.tags.map((tag) => (
-        <p>{tag}</p>
-      ))}
+      <Tags tags={trick.tags} />
     </div>
   );
 }
