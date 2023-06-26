@@ -1,6 +1,5 @@
-import clientPromise from '@/lib/mongodb';
+import TrickCard from '@/components/TrickCard';
 import { useState } from 'react';
-import Trick from '@/components/trick';
 
 type TrickProps = {
   tricks: [Trick];
@@ -24,7 +23,7 @@ export default function Home(props: TrickProps) {
       <h1>Tasteful Tech</h1>
       <div className='flex flex-wrap'>
         {tricks.map((trick) => (
-          <Trick trick={trick} />
+          <TrickCard trick={trick} />
         ))}
       </div>
     </>

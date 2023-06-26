@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import Trick from '@/components/trick';
+import Trick from '@/components/TrickCard';
 import { GetServerSidePropsContext } from 'next';
 
 type TrickProps = {

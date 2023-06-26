@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import Tags from './tags';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Tags from '@/components/Tags';
 
 type TrickProps = {
   trick: Trick;
@@ -15,7 +17,8 @@ type Trick = {
   webmLink: string;
 };
 
-export default function Trick(props: TrickProps) {
+export default function TrickCard(props: TrickProps) {
+  const router = useRouter();
   const [trick, setTrick] = useState<Trick>(props.trick);
 
   const handleMouseOverVideo = (
@@ -43,10 +46,17 @@ export default function Trick(props: TrickProps) {
         <source src={trick.webmLink} type='video/webm'></source>
         Your browser does not support the video tag.
       </video>
-      <p>
-        {trick.skater} - <a href={trick.youtubeLink}>{trick.videoTitle}</a>
-      </p>
-      <Tags tags={trick.tags} />
+      <div className='flex flex-wrap overflow-hidden h-12 justify-center'>
+        <div className='m-1.5 p-1.5 rounded-md text-slate-100 bg-orange-600 hover:bg-orange-800'>
+          {trick.skater}
+        </div>
+        <Tags tags={trick.tags} />
+      </div>
+      <div className='flex justify-end text-sm'>
+        <Link href={`/trick/${trick._id}`}>
+          Watch with volume, view more info...
+        </Link>
+      </div>
     </div>
   );
 }

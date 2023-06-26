@@ -1,9 +1,9 @@
-import Navbar from './navbar';
+import NavBar from '@/components/NavBar';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Navbar />
+      <NavBar />
       <main>{children}</main>
       <footer>[footer placeholder]</footer>
     </>

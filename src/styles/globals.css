@@ -7,17 +7,13 @@ body {
 }
 
 h1 {
-  @apply text-5xl text-center m-2;
-}
-
-p {
-  @apply text-center;
+  @apply text-4xl text-center m-2;
 }
 
 a {
-  @apply text-blue-500;
+  @apply text-blue-700;
 }
 
 a:hover {
-  @apply text-blue-700;
+  @apply text-blue-900;
 }
