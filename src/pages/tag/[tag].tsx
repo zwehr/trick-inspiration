@@ -1,6 +1,7 @@
-import clientPromise from '@/lib/mongodb';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Trick from '@/components/trick';
+import { GetServerSidePropsContext } from 'next';
 
 type TrickProps = {
   tricks: [Trick];
@@ -16,12 +17,13 @@ type Trick = {
   webmLink: string;
 };
 
-export default function Home(props: TrickProps) {
+export default function Tag(props: TrickProps) {
+  const router = useRouter();
   const [tricks, setTricks] = useState<[Trick]>(props.tricks);
 
   return (
     <>
-      <h1>Tasteful Tech</h1>
+      <h1>Tag: {router.query.tag}</h1>
       <div className='flex flex-wrap'>
         {tricks.map((trick) => (
           <Trick trick={trick} />
@@ -31,9 +33,15 @@ export default function Home(props: TrickProps) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  let tag;
+  if (context.params) {
+    tag = context.params.tag;
+  }
+  console.log(tag);
+
   try {
-    let response = await fetch('http://localhost:3000/api/tricks');
+    let response = await fetch(`http://localhost:3000/api/tricks/tag/${tag}`);
     let tricks = await response.json();
 
     return {
