@@ -28,6 +28,7 @@ export default function CardVideo({ webmLink, id }: CardVideoProps) {
 
   return (
     <video
+      className='cursor-pointer'
       muted
       loop
       onMouseOver={handleMouseOverVideo}
