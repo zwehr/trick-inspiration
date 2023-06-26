@@ -23,7 +23,7 @@ export default function Trick(props: TrickProps) {
   return (
     <>
       <h1>Trick ID: {router.query.id}</h1>
-      <video controls loop className='mx-auto'>
+      <video controls className='mx-auto'>
         <source src={trick.webmLink} type='video/webm'></source>
         Your browser does not support the video tag.
       </video>

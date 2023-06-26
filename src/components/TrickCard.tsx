@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Tags from '@/components/Tags';
+import CardVideo from './CardVideo';
 
 type TrickProps = {
   trick: Trick;
@@ -37,15 +38,7 @@ export default function TrickCard(props: TrickProps) {
 
   return (
     <div className='w-1/4 m-6 border-4 border-black shadow-[10px_10px_black] bg-emerald-300'>
-      <video
-        muted
-        loop
-        onMouseOver={handleMouseOverVideo}
-        onMouseOut={handleMouseOutVideo}
-      >
-        <source src={trick.webmLink} type='video/webm'></source>
-        Your browser does not support the video tag.
-      </video>
+      <CardVideo webmLink={trick.webmLink} id={trick._id} />
       <div className='flex flex-wrap overflow-hidden h-12 justify-center'>
         <div className='m-1.5 p-1.5 rounded-md text-slate-100 bg-orange-600 hover:bg-orange-800'>
           {trick.skater}
