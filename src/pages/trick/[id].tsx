@@ -37,7 +37,7 @@ export default function Trick(props: TrickProps) {
           </span>
         </Link>
       </h1>
-      <video controls className='mx-auto max-w-7xl'>
+      <video controls muted playsInline autoPlay className='mx-auto max-w-7xl'>
         <source src={trick.webmLink} type='video/webm'></source>
         Your browser does not support the video tag.
       </video>
