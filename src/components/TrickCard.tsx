@@ -22,27 +22,16 @@ export default function TrickCard(props: TrickProps) {
   const router = useRouter();
   const [trick, setTrick] = useState<Trick>(props.trick);
 
-  const handleMouseOverVideo = (
-    event: React.MouseEvent<HTMLVideoElement, MouseEvent>
-  ) => {
-    const target = event.target as HTMLVideoElement;
-    target.play();
-  };
-
-  const handleMouseOutVideo = (
-    event: React.MouseEvent<HTMLVideoElement, MouseEvent>
-  ) => {
-    const target = event.target as HTMLVideoElement;
-    target.pause();
-  };
-
   return (
     <div className='w-1/4 m-6 border-4 border-black shadow-[10px_10px_black] bg-emerald-300'>
       <CardVideo webmLink={trick.webmLink} id={trick._id} />
+
       <div className='flex flex-wrap overflow-hidden h-12 justify-center'>
-        <div className='m-1.5 p-1.5 rounded-md text-slate-100 bg-orange-600 hover:bg-orange-800'>
-          {trick.skater}
-        </div>
+        <Link href={`/skater/${trick.skater}`}>
+          <div className='m-1.5 p-1.5 rounded-md text-slate-100 bg-orange-600 hover:bg-orange-800'>
+            {trick.skater}
+          </div>
+        </Link>
         <Tags tags={trick.tags} />
       </div>
       <div className='flex justify-end text-sm'>

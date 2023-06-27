@@ -2,7 +2,7 @@ import clientPromise from '@/lib/mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { tag } = req.query;
+  const { name } = req.query;
 
   try {
     const client = await clientPromise;
@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const tricks = await db
       .collection('tricks-webm')
-      .find({ tags: tag })
+      .find({ skater: name })
       .limit(10)
       .toArray();
 
