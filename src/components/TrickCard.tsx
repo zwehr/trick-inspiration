@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Tags from '@/components/Tags';
+import Tags from '@/components/TagsTempName';
 import CardVideo from './CardVideo';
 
 type TrickProps = {

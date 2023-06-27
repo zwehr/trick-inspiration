@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { GetServerSidePropsContext } from 'next';
 import { useState } from 'react';
-import Tags from '@/components/Tags';
+import Tags from '@/components/TagsTempName';
 import Link from 'next/link';
 
 type TrickProps = {
