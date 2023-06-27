@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const movies = await db
       .collection('tricks-webm')
       .find({})
-      .limit(10)
+      // .limit(10)
       .toArray();
 
     res.json(movies);

@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { GetServerSidePropsContext } from 'next';
 import { useState } from 'react';
+import Tags from '@/components/Tags';
+import Link from 'next/link';
 
 type TrickProps = {
   trick: Trick;
@@ -22,19 +24,30 @@ export default function Trick(props: TrickProps) {
 
   return (
     <>
-      <h1>Trick ID: {router.query.id}</h1>
-      <video controls className='mx-auto'>
+      <h1 className='m-5'>
+        <Link href={`/skater/${trick.skater}`}>
+          <span className='p-1.5 rounded-md text-slate-100 bg-orange-600 hover:bg-orange-800'>
+            {trick.skater}
+          </span>
+        </Link>
+        &nbsp;in&nbsp;
+        <Link href={`/video/${trick.videoTitle}`}>
+          <span className='p-1.5 rounded-md text-slate-100 bg-cyan-600 hover:bg-cyan-800'>
+            {trick.videoTitle}
+          </span>
+        </Link>
+      </h1>
+      <video controls className='mx-auto max-w-7xl'>
         <source src={trick.webmLink} type='video/webm'></source>
         Your browser does not support the video tag.
       </video>
-      <div className='w-1/3 mx-auto text-left'>
-        <p>Skater: {trick.skater}</p>
-        <p>Tags: {trick.tags}</p>
-        <p>Spot Type: {trick.spotType}</p>
-        <p>
-          Video: {trick.videoTitle} (View more clips here | View entire video on
-          YouTube)
-        </p>
+      <div className='w-1/2 mx-auto mt-4'>
+        <div className='flex justify-center'>
+          <Tags tags={trick.tags} />
+        </div>
+        <a href={trick.youtubeLink}>
+          <p className='text-center'>Watch {trick.videoTitle} on YouTube</p>
+        </a>
       </div>
     </>
   );
