@@ -32,7 +32,9 @@ export default function Home(props: TrickProps) {
 
 export async function getServerSideProps() {
   try {
-    let response = await fetch('http://localhost:3000/api/tricks');
+    let response = await fetch(
+      'https://trick-inspiration.vercel.app/api/tricks'
+    );
     let tricks = await response.json();
 
     return {
