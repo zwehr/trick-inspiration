@@ -23,7 +23,7 @@ export default function Home(props: TrickProps) {
       <h1>Tasteful Tech</h1>
       <div className='flex flex-wrap'>
         {tricks.map((trick) => (
-          <TrickCard trick={trick} />
+          <TrickCard trick={trick} key={trick._id} />
         ))}
       </div>
     </>

@@ -26,7 +26,7 @@ export default function Tag(props: TrickProps) {
       <h1>Tag: {router.query.tag}</h1>
       <div className='flex flex-wrap'>
         {tricks.map((trick) => (
-          <TrickCard trick={trick} />
+          <TrickCard trick={trick} key={trick._id} />
         ))}
       </div>
     </>

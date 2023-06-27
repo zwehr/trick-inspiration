@@ -24,10 +24,12 @@ export default function TricksBySkater(props: TrickProps) {
 
   return (
     <>
-      <h1>Tricks by {skater}</h1>
+      <h1>
+        {tricks.length} Tricks by {skater}
+      </h1>
       <div className='flex flex-wrap'>
         {tricks.map((trick) => (
-          <TrickCard trick={trick} />
+          <TrickCard trick={trick} key={trick._id} />
         ))}
       </div>
     </>
