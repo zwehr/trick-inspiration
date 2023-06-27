@@ -44,7 +44,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   try {
     let response = await fetch(
-      `http://localhost:3000/api/tricks/skater/${skater}`
+      `https://trick-inspiration.vercel.app/api/tricks/skater/${skater}`
     );
     let tricks = await response.json();
 
